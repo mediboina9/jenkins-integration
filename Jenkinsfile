@@ -7,14 +7,14 @@ jdk "JDK"
 stages {
 stage('Initialize'){
 steps{
-echo "PATH = ${M2_HOME}/bin:${PATH}"
-echo "M2_HOME = /opt/maven"
+withMaven(maven:'maven_3_5_0')
+sh 'mvn clean compile'
 }
 }
 stage('Build') {
 steps {
-dir("/var/lib/jenkins/workspace/demopipelinetask/my-app") {
-sh 'mvn -B -DskipTests clean package'
+withMaven(maven:'maven_3_5_0')
+sh 'mvn test'
 }
 }
 }
