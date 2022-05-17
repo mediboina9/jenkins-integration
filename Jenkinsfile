@@ -4,10 +4,10 @@ node {
     // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
   }
   stage ('output') {
-    println "Hello World."
+    println "Hello World........................................................................................................................."
     def mvn_version = '3.8.5'
-    withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
-  //sh "mvn clean package"
+    withEnv( maven:'maven_3_8_5 ) {
+  sh "mvn clean package"
 }
   }
    stage ('Build') {
