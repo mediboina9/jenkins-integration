@@ -5,7 +5,7 @@ node {
   }
   stage ('output') {
     println "Hello World."
-    def mvn_version = 'M3'
+    def mvn_version = '3.8.5'
     withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
   //sh "mvn clean package"
 }
