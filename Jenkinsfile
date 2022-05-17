@@ -4,10 +4,7 @@ node {
     // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
   }
   stage('syntax pipeline'){
-  withMaven(globalMavenSettingsConfig: 'null',  maven: 'maven', mavenSettingsConfig: 'null') {
-    // some block
-    sh 'mvn clean install'
-}
+  
   }
   stage ('output') {
     println "Hello World........................................................................................................................."
