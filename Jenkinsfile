@@ -5,6 +5,10 @@ node {
   }
   stage ('output') {
     println "Hello World."
+    def mvn_version = 'M3'
+    withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+  //sh "mvn clean package"
+}
   }
    stage ('Build') {
    // git url: 'https://github.com/mediboina9/jenkins-integration'
