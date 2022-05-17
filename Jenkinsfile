@@ -1,5 +1,5 @@
 node {
-    agent any
+    
 
     stages {
         stage ('Compile Stage') {
