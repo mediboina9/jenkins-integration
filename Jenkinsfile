@@ -6,7 +6,7 @@ node {
   stage ('output') {
     println "Hello World........................................................................................................................."
     def mvn_version = '3.8.5'
-    withEnv( maven:'maven_3_8_5 ) {
+    withEnv( maven:'maven_3_8_5') {
        sh 'mvn clean package'
     }
   }
