@@ -1,20 +1,32 @@
-node {
-  stage ('git ') {
-    git url: 'https://github.com/mediboina9/jenkins-integration'
-    // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
-  }
-  stage('syntax pipeline'){
-  
-  }
-  stage ('output') {
-    
-    
-  }
-   stage ('Build') {
-   // git url: 'https://github.com/mediboina9/jenkins-integration'
-    withMaven {
-     
-        
-    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
-  }
+pipeline {
+    agent any
+
+    stages {
+        stage ('Compile Stage') {
+
+            steps {
+                withMaven(maven : 'maven') {
+                    sh 'mvn clean compile'
+                }
+            }
+        }
+
+        stage ('Testing Stage') {
+
+            steps {
+                withMaven(maven : 'maven_3_5_0') {
+                    sh 'mvn test'
+                }
+            }
+        }
+
+
+        stage ('Deployment Stage') {
+            steps {
+                withMaven(maven : 'maven_3_5_0') {
+                    sh 'mvn deploy'
+                }
+            }
+        }
+    }
 }
