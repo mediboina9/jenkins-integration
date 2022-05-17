@@ -7,11 +7,8 @@ node {
   
   }
   stage ('output') {
-    println "Hello World........................................................................................................................."
-    def mvn_version = '3.8.5'
-    withEnv( maven:'maven_3_8_5') {
-       sh 'mvn clean package'
-    }
+    
+    
   }
    stage ('Build') {
    // git url: 'https://github.com/mediboina9/jenkins-integration'
